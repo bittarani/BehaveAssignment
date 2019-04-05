@@ -11,11 +11,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-// import io.github.bonigarcia.wdm.WebDriverManager;
+
 
 public class TestBasePage {
 
-	protected static WebDriver driver;
+	protected WebDriver driver;
 	protected static Properties prop;
 
 	public TestBasePage() {
@@ -30,7 +30,7 @@ public class TestBasePage {
 		}
 	}
 
-    public static void initialization() {
+    public void initialization() {
 		
 		String browserName = prop.getProperty("browser");
 		if(browserName.equals("chrome")) {
@@ -47,7 +47,7 @@ public class TestBasePage {
 		}
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
 		
 		driver.get(prop.getProperty("url"));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
